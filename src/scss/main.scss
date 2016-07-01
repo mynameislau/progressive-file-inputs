@@ -1,0 +1,25 @@
+body {
+  background: white;
+}
+
+.progressive-file-input__label {
+  background-color: black;
+  color: white;
+  padding: 1em;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.progressive-file-input__input:focus + label {
+  outline: 1px dotted blue;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.progressive-file-input__input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
