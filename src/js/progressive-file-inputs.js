@@ -21,13 +21,13 @@
     }
 
     return label;
-  }
+  };
 
   const dispatchEvent = () => {
     const labelChangedEvent = document.createEvent('Event');
     labelChangedEvent.initEvent('labelChanged', true, true);
     input.dispatchEvent(labelChangedEvent);
-  }
+  };
 
   const setLabel = (input, labelElement, label) => {
     if (input.getAttribute('data-label') !== label) {
@@ -35,6 +35,31 @@
     }
     if (labelElement.textContent !== label) {
       labelElement.textContent = label;
+    }
+  };
+
+  const reAddClassWithReflow = (element, className) => {
+    //element.classList.remove(className);
+    const sibling = element.nextSibling;
+    const parent = element.parentElement;
+    parent.removeChild(element);
+    parent.insertBefore(element, sibling);
+    element.classList.add(className);
+  }
+
+  const setClasses = (input, labelElement, label) => {
+    const filesSelectedInput = 'progressive-file-input__input--files-selected';
+    const filesSelectedLabel = 'progressive-file-input__label--files-selected';
+
+    if (label !== input.getAttribute('data-default-label'))
+    {
+      reAddClassWithReflow(input, filesSelectedInput);
+      reAddClassWithReflow(labelElement, filesSelectedLabel);
+    }
+    else
+    {
+      labelElement.classList.remove(filesSelectedLabel);
+      input.classList.remove(filesSelectedInput);
     }
   }
 
@@ -51,6 +76,7 @@
 
       input.addEventListener('change', event => {
         const label = getFileInputLabel(input);
+        setClasses(input, labelElement, label);
         setLabel(input, labelElement, label);
       });
     });

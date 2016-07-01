@@ -2,12 +2,24 @@ body {
   background: white;
 }
 
-.progressive-file-input__label {
+.progressive-file-input__input + label {
   background-color: black;
   color: white;
   padding: 1em;
   display: inline-block;
   cursor: pointer;
+}
+
+@keyframes blink {
+  from {
+    background-color: grey;
+    color: grey;
+  }
+}
+
+.progressive-file-input__label--files-selected {
+  animation: blink 1s;
+  color: red;
 }
 
 .progressive-file-input__input:focus + label {
