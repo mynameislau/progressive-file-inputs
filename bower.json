@@ -1,0 +1,21 @@
+{
+  "name": "progressive-file-inputs",
+  "description": "progressively enhance file inputs",
+  "main": "lib/progressive-file-inputs.js",
+  "authors": [
+    "Laurent Falda <mynameislau@gmail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "file-inputs"
+  ],
+  "homepage": "https://github.com/mynameislau/progressive-file-inputs",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
