@@ -1,6 +1,21 @@
 (() => {
-  const selectAll = (selector, context = window.document) =>
-    [...context.querySelectorAll(selector)];
+  // not ie8 compatible
+  // const selectAll = (selector, context = window.document) =>
+  //   [...context.querySelectorAll(selector)];
+
+  const selectAll = (selector, context = window.document) => {
+    const query = context.querySelectorAll(selector);
+    const length = query.length;
+    let i = 0;
+    const result = [];
+
+    for (; i < length; i += 1)
+    {
+      result.push(query[i]);
+    }
+
+    return result;
+  }
 
   const select = (selector, context = window.document) =>
     context.querySelector(selector);
