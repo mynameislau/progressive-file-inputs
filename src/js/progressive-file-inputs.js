@@ -86,7 +86,12 @@
     if (document.readyState === 'complete') {
 
       clearInterval(stateCheck);
-      window.enableProgressiveFileInputs();
+      try {
+        window.enableProgressiveFileInputs();
+      }
+      catch (error) {
+        console.log(error);
+      }
     }
   }, 100);
 })();
